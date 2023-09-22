@@ -13,6 +13,7 @@ namespace WinForm_Drawing
         {
             Graphics graphics = e.Graphics;
 
+
             Brush tealBrush = new SolidBrush(Color.Teal);
             Brush orangeBrush = new SolidBrush(Color.DarkOrange);
             Brush redBrush = new SolidBrush(Color.DarkRed);
@@ -20,7 +21,7 @@ namespace WinForm_Drawing
 
             Pen penOne = new Pen(Brushes.Black);
 
-            Pen penTwo = new Pen(Brushes.Black);
+            Pen penTwo = new Pen(Brushes.OrangeRed);
             penTwo.Width = 25;
 
             Pen penThree = new Pen(Brushes.Black);
@@ -39,7 +40,8 @@ namespace WinForm_Drawing
 
             Point centerPoint = new Point(screenWisth / 2, screenHeight / 2);
 
-            string menuTitle = "Super Omega Ultra";
+            string menuTitle = "    Super Omega \n      Placholder";
+            Font titleFont = new Font("Arial", 35);
 
             Rectangle windowRect = new Rectangle(0, 0, screenWisth, screenHeight);
             graphics.FillRectangle(tealBrush, windowRect);
@@ -56,13 +58,17 @@ namespace WinForm_Drawing
 
             //graphics.DrawEllipse(penOne, new Rectangle(screenWisth / 4, screenHeight/4, 20, 20));
             //graphics.DrawEllipse(penOne, new Rectangle((screenWisth / 4)+(screenWisth/2), screenHeight / 4, 20, 20));
-            graphics.DrawEllipse(penOne, new Rectangle((screenWisth / 4) + (screenWisth / 2), (screenHeight / 4) - (screenHeight / 4), 20, 20));
-            graphics.DrawEllipse(penOne, new Rectangle((screenWisth / 4), (screenHeight / 4) - (screenHeight / 4), 20, 20));
+           // graphics.DrawEllipse(penOne, new Rectangle((screenWisth / 4) + (screenWisth / 2), (screenHeight / 4) - (screenHeight / 4), 20, 20));
+            //graphics.DrawEllipse(penOne, new Rectangle((screenWisth / 4), (screenHeight / 4) - (screenHeight / 4), 20, 20));
 
             Point o = new Point((screenWisth / 4) + (screenWisth / 2), 0);
             Point p = new Point((screenWisth / 4), (screenHeight / 4));
             int width = o.X - p.X;
-            graphics.DrawRectangle(penTwo, new Rectangle((screenWisth / 4), 10, width, 150));
+
+            int titleRectSize = 83;
+            graphics.DrawRectangle(penTwo, new Rectangle((screenWisth / 4), 10, width, titleRectSize));
+            graphics.FillRectangle(orangeBrush, new Rectangle((screenWisth / 4), 10, width, titleRectSize));
+            graphics.DrawString(menuTitle, titleFont, brownBrush, new Rectangle((screenWisth / 4), 10, width, 150));
             string f = "fdddddd";
         }
     }
