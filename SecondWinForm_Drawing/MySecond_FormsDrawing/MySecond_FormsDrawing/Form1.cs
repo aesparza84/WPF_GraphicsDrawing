@@ -1,5 +1,3 @@
-using System.Drawing.Text;
-
 namespace MySecond_FormsDrawing
 {
     public partial class Form1 : Form
@@ -19,6 +17,11 @@ namespace MySecond_FormsDrawing
             Brush redBrush = new SolidBrush(Color.DarkRed);
             Brush brownBrush = new SolidBrush(Color.Brown);
             Brush blackBrush = new SolidBrush(Color.Black);
+            Brush darkBlueBrush = new SolidBrush(Color.DarkBlue);
+            Brush greenBrush = new SolidBrush(Color.DarkGreen);
+
+            Brush crystalA = new SolidBrush(Color.Green);
+            Brush crystalB = new SolidBrush(Color.GreenYellow);
 
             Pen grayPen = new Pen(Color.Gray);
             Brush grayBrush = new SolidBrush(Color.Gray);
@@ -29,6 +32,8 @@ namespace MySecond_FormsDrawing
             whitePen.Width = 2;
 
             Pen newPen = new Pen(Color.OrangeRed);
+            Pen thickRed = new Pen(Color.Red);
+            thickRed.Width = 3;
            
 
             Pen penTwo = new Pen(Brushes.OrangeRed);
@@ -239,18 +244,122 @@ namespace MySecond_FormsDrawing
             hexLeft[4] = new Point(210, 205);
             hexLeft[5] = new Point(205, 200);
             hexLeft[6] = new Point(200, 200);
-
             graphics.DrawLines(whitePen, hexLeft);
 
+
+            Rectangle planetRectA = new Rectangle(10, 30, 60, 60);
+            Rectangle planetRectB = new Rectangle(150, 310, 60, 60);
+
+            //graphics.DrawRectangle(whitePen, planetRect);
+            // graphics.DrawEllipse(whitePen, planetRect);
+            // graphics.DrawPie(yellowPen, planetRect, 276, 130);
+
+            graphics.FillEllipse(darkBlueBrush, planetRectA);
+            graphics.FillPie(greenBrush, planetRectA, 276, 130);
+
+            graphics.FillEllipse(grayBrush, planetRectB);
+            graphics.FillPie(redBrush, planetRectB, 290, 45);
+
+            Point[] laser = new Point[2];
+            laser[0] = new Point(planetRectB.X+50, planetRectB.Y+10);
+            laser[1] = new Point(planetRectB.X+100, planetRectB.Y-40);
+
+            graphics.DrawLines(thickRed, laser);
+            graphics.DrawLine(thickRed, laser[0], new Point(planetRectB.X+60, planetRectB.Y-30));
+            graphics.DrawLine(thickRed, laser[0], new Point(planetRectB.X + 90, planetRectB.Y + 10));
+            graphics.DrawLine(thickRed, laser[0], new Point(planetRectB.X + 70, planetRectB.Y));
+
+            // graphics.FillClosedCurve(redBrush, planetDivide);
+
+            Point[] Diamond = new Point[14];
+            Diamond[0] = new Point(580, 300);
+            Diamond[1] = new Point(550, 300);
+            Diamond[2] = new Point(520, 330);
+            Diamond[3] = new Point(567, 400);
+            Diamond[4] = new Point(610, 330);
+            Diamond[5] = new Point(580, 300);
+            Diamond[6] = new Point(565, 340);
+            Diamond[7] = Diamond[1];
+            Diamond[8] = Diamond[6];
+            Diamond[9] = Diamond[2];
+            Diamond[10] = Diamond[6];
+            Diamond[11] = Diamond[3];
+            Diamond[12] = Diamond[6];
+            Diamond[13] = Diamond[4];
+
+            Point[] triA = new Point[3];
+            triA[0] = Diamond[1];
+            triA[1] = Diamond[6];
+            triA[2] = Diamond[2];
+
+            Point[] triB = new Point[3];
+            triB[0] = Diamond[2];
+            triB[1] = Diamond[6];
+            triB[2] = Diamond[3];
+
+            Point[] triC = new Point[3];
+            triC[0] = Diamond[3];
+            triC[1] = Diamond[6];
+            triC[2] = Diamond[4];
+
+            Point[] triD = new Point[3];
+            triD[0] = Diamond[4];
+            triD[1] = Diamond[6];
+            triD[2] = Diamond[5];
+
+            Point[] triE = new Point[3];
+            triE[0] = Diamond[5];
+            triE[1] = Diamond[6];
+            triE[2] = Diamond[6];
+
+            Point[] triF = new Point[3];
+            triE[0] = Diamond[0];
+            triE[1] = Diamond[6];
+            triE[2] = Diamond[1];
+
+            graphics.FillPolygon(crystalA, triA);
+            graphics.FillPolygon(crystalA, triB);
+            graphics.FillPolygon(crystalB, triC);
+            graphics.FillPolygon(crystalB, triD);
+            graphics.FillPolygon(crystalB, triE);
+            graphics.FillPolygon(crystalB, triF);
+
+            Pen thickBlackPen = new Pen(Color.Black);
+            thickBlackPen.Width = 6;
+            graphics.DrawLines(thickBlackPen, Diamond);
+
+
+
+            Point[] Hex = new Point[7];
+            Hex[0] = new Point(Diamond[3].X, Diamond[3].Y-80); //567, 400
+            Hex[1] = new Point(550, 330);
+            Hex[2] = new Point(550, 345);
+            Hex[3] = new Point(567, 355);
+            Hex[4] = new Point(585, 345);
+            Hex[5] = new Point(585, 330);
+            Hex[6] = new Point(Diamond[3].X, Diamond[3].Y - 80);
+
+            Point[] HexDivide= new Point[5];
+            HexDivide[0] = Hex[0];
+            HexDivide[1] = Hex[3];
+            HexDivide[2] = Hex[2];
+            HexDivide[3] = Hex[1];
+            HexDivide[4] = Hex[0];
+
+            //graphics.DrawLines(yellowPen, Hex);
+            //graphics.DrawLines(whitePen, HexDivide);
+
+            graphics.FillPolygon(crystalA, Hex);
+            graphics.FillPolygon(crystalB, HexDivide);
 
             #region shapes needed
             ///Rectangle -----DONE
             ///Ellipses  -----DONE
             ///Square    -----DONE
-            ///Circle
+            ///Circle    -----DONE
             ///Pie       -----DONE
             ///Arc       -----DONE
-            ///Triangle
+            ///Triangle  -----DONE
             ///Hexagon   -----DONE
             ///Text      -----DONE
             ///Pen and Brush--DONE
