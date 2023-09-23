@@ -39,6 +39,9 @@ namespace MySecond_FormsDrawing
             Pen penTwo = new Pen(Brushes.OrangeRed);
             penTwo.Width = 25;
 
+            Pen penThree = new Pen(Color.OrangeRed);
+            penThree.Width = 3;
+
 
             Pen thickColoredPen = new Pen(Brushes.DarkOrange);
             thickColoredPen.Width = 25;
@@ -49,7 +52,7 @@ namespace MySecond_FormsDrawing
             Point centerPoint = new Point(screenWisth / 2, screenHeight / 2);
 
             string menuTitle = "  Anomoly Hunters";
-            Font titleFont = new Font("Cambria Math", 35);
+            Font titleFont = new Font("Calibri", 35);
 
             Font fontTwo = new Font("Courier New",15);
             string[] menuOptions = new string[3];
@@ -82,11 +85,19 @@ namespace MySecond_FormsDrawing
             int titleRectSize = 83;
             graphics.DrawRectangle(penTwo, new Rectangle((screenWisth / 4), 10, width, titleRectSize));
             graphics.FillRectangle(orangeBrush, new Rectangle((screenWisth / 4), 10, width, titleRectSize));
-            Point[] titleLines = new Point[3];
-            titleLines[0] = new Point((screenWisth / 4), 10);
-            titleLines[1] = new Point();
-            titleLines[2] = new Point();
-            graphics.DrawLines(penOne, titleLines);
+            Point[] titleLines = new Point[10];
+            titleLines[0] = new Point((screenWisth / 4)+3, 10);
+            titleLines[1] = new Point((screenWisth / 4) + width - 3, 20);
+            titleLines[2] = new Point((screenWisth / 4)+3, 30);
+            titleLines[3] = new Point((screenWisth / 4)+width-3, 40);
+            titleLines[4] = new Point((screenWisth / 4)+3, 50);
+            titleLines[5] = new Point((screenWisth / 4) + width-3, 60);
+
+            titleLines[6] = new Point((screenWisth / 4) + 3, 70);
+            titleLines[7] = new Point((screenWisth / 4) + width - 3, 80);
+            titleLines[8] = new Point((screenWisth / 4) + 3, 90);
+            titleLines[9] = new Point((screenWisth / 4) + width - 3, 100);
+            graphics.DrawLines(penThree, titleLines);
 
             graphics.DrawString(menuTitle, titleFont, blackBrush, new Rectangle((screenWisth / 4), 30, width, 150));
 
