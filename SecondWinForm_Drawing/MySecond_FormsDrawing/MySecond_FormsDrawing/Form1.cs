@@ -1,6 +1,4 @@
-using System.Numerics;
-
-namespace WinForm_Drawing
+namespace MySecond_FormsDrawing
 {
     public partial class Form1 : Form
     {
@@ -9,7 +7,7 @@ namespace WinForm_Drawing
             InitializeComponent();
         }
 
-        private void NewPaint(object sender, PaintEventArgs e)
+        private void MyPaint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
 
@@ -58,7 +56,7 @@ namespace WinForm_Drawing
 
             //graphics.DrawEllipse(penOne, new Rectangle(screenWisth / 4, screenHeight/4, 20, 20));
             //graphics.DrawEllipse(penOne, new Rectangle((screenWisth / 4)+(screenWisth/2), screenHeight / 4, 20, 20));
-           // graphics.DrawEllipse(penOne, new Rectangle((screenWisth / 4) + (screenWisth / 2), (screenHeight / 4) - (screenHeight / 4), 20, 20));
+            // graphics.DrawEllipse(penOne, new Rectangle((screenWisth / 4) + (screenWisth / 2), (screenHeight / 4) - (screenHeight / 4), 20, 20));
             //graphics.DrawEllipse(penOne, new Rectangle((screenWisth / 4), (screenHeight / 4) - (screenHeight / 4), 20, 20));
 
             Point o = new Point((screenWisth / 4) + (screenWisth / 2), 0);
@@ -71,7 +69,5 @@ namespace WinForm_Drawing
             graphics.DrawString(menuTitle, titleFont, brownBrush, new Rectangle((screenWisth / 4), 10, width, 150));
             string f = "fdddddd";
         }
-
-        
     }
 }
