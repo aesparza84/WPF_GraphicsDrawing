@@ -43,8 +43,8 @@ namespace MySecond_FormsDrawing
 
             Point centerPoint = new Point(screenWisth / 2, screenHeight / 2);
 
-            string menuTitle = "    Super Omega \n      Placholder";
-            Font titleFont = new Font("Arial", 35);
+            string menuTitle = "  Anomoly Hunters";
+            Font titleFont = new Font("Cambria Math", 35);
 
             Font fontTwo = new Font("Courier New",15);
             string[] menuOptions = new string[3];
@@ -77,7 +77,7 @@ namespace MySecond_FormsDrawing
             int titleRectSize = 83;
             graphics.DrawRectangle(penTwo, new Rectangle((screenWisth / 4), 10, width, titleRectSize));
             graphics.FillRectangle(orangeBrush, new Rectangle((screenWisth / 4), 10, width, titleRectSize));
-            graphics.DrawString(menuTitle, titleFont, brownBrush, new Rectangle((screenWisth / 4), 10, width, 150));
+            graphics.DrawString(menuTitle, titleFont, tealBrush, new Rectangle((screenWisth / 4), 30, width, 150));
 
             Pen yellowPen = new Pen(Color.Yellow);
             yellowPen.Width = 3;
@@ -217,7 +217,7 @@ namespace MySecond_FormsDrawing
             Point menuPointB = new Point(rectUnderMid.X + 15, rectUnderMid.Y + 60);
             Point menuPointC = new Point(rectUnderMid.X + 35, rectUnderMid.Y + 90);
 
-            graphics.DrawString(menuOptions[0], fontTwo, tealBrush, menuPointA);
+            graphics.DrawString(menuOptions[0], fontTwo, cyanBrush, menuPointA);
             graphics.DrawString(menuOptions[1], fontTwo, grayBrush, menuPointB);
             graphics.DrawString(menuOptions[2], fontTwo, grayBrush, menuPointC);
 
@@ -251,7 +251,7 @@ namespace MySecond_FormsDrawing
             ///Pie       -----DONE
             ///Arc       -----DONE
             ///Triangle
-            ///Hexagon
+            ///Hexagon   -----DONE
             ///Text      -----DONE
             ///Pen and Brush--DONE
             #endregion
