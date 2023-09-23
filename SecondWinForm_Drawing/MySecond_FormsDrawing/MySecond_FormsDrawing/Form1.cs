@@ -1,3 +1,5 @@
+using System.Drawing.Text;
+
 namespace MySecond_FormsDrawing
 {
     public partial class Form1 : Form
@@ -11,15 +13,21 @@ namespace MySecond_FormsDrawing
         {
             Graphics graphics = e.Graphics;
 
-
+            Brush cyanBrush = new SolidBrush(Color.Cyan);
             Brush tealBrush = new SolidBrush(Color.Teal);
             Brush orangeBrush = new SolidBrush(Color.DarkOrange);
             Brush redBrush = new SolidBrush(Color.DarkRed);
             Brush brownBrush = new SolidBrush(Color.Brown);
             Brush blackBrush = new SolidBrush(Color.Black);
 
+            Pen grayPen = new Pen(Color.Gray);
+            Brush grayBrush = new SolidBrush(Color.Gray);
+
             Pen penOne = new Pen(Brushes.Black);
+
             Pen whitePen = new Pen(Brushes.White);
+            whitePen.Width = 2;
+
             Pen newPen = new Pen(Color.OrangeRed);
            
 
@@ -37,6 +45,12 @@ namespace MySecond_FormsDrawing
 
             string menuTitle = "    Super Omega \n      Placholder";
             Font titleFont = new Font("Arial", 35);
+
+            Font fontTwo = new Font("Courier New",15);
+            string[] menuOptions = new string[3];
+            menuOptions[0] = "Start";
+            menuOptions[1] = "Options";
+            menuOptions[2] = "Exit";
 
             Rectangle windowRect = new Rectangle(0, 0, screenWisth, screenHeight);
             graphics.FillRectangle(blackBrush, windowRect);
@@ -72,8 +86,7 @@ namespace MySecond_FormsDrawing
             otherPen.Width = 3;
 
             //graphics.DrawRectangle(penOne, new Rectangle((screenWisth / 2) - 100, 150, 250, 100));
-            Pen grayPen = new Pen(Color.Gray);
-            Brush grayBrush = new SolidBrush(Color.DarkCyan);
+            
             //TextureBrush grayBrush = new TextureBrush(Image.FromFile(""));
 
             #region middle
@@ -81,7 +94,7 @@ namespace MySecond_FormsDrawing
 
             graphics.DrawRectangle(penOne, multipleShapesOne);
             graphics.DrawEllipse(grayPen, multipleShapesOne);
-            graphics.FillEllipse(grayBrush, multipleShapesOne);
+            graphics.FillEllipse(tealBrush, multipleShapesOne);
 
             graphics.DrawArc(yellowPen, multipleShapesOne, 60, 165);
             graphics.DrawPie(yellowPen, multipleShapesOne, 60, 105);
@@ -175,11 +188,41 @@ namespace MySecond_FormsDrawing
 
             Rectangle newRect = new Rectangle(200,200, 10,10);
             Rectangle newRectB = new Rectangle(590, 200, 10, 10);
+            Rectangle rectUnderMid = new Rectangle(screenWisth/2 - 70, screenHeight/2+30, 125, 150);
+
+            graphics.DrawRectangle(whitePen, rectUnderMid);
+           
 
             Point[] hexLeft = new Point[7];
-            Point[] hexRight = new Point[5];
+
+            Point[] underMidA = new Point[3];
+            Point[] underMidB = new Point[3];
             //graphics.DrawRectangle(whitePen, newRect);
-             graphics.DrawRectangle(whitePen, newRectB);
+
+
+            underMidA[0] = new Point(rectUnderMid.X+50, rectUnderMid.Y);
+            underMidA[1] = new Point(rectUnderMid.X, rectUnderMid.Y+34);
+            underMidA[2] = new Point(rectUnderMid.X, rectUnderMid.Y);
+
+            underMidB[0] = new Point(rectUnderMid.X + 80, rectUnderMid.Y+150);
+            underMidB[1] = new Point(rectUnderMid.X+125, rectUnderMid.Y+110);
+            underMidB[2] = new Point(rectUnderMid.X+125, rectUnderMid.Y+150);
+
+            graphics.DrawLines(whitePen, underMidA);
+            graphics.FillPolygon(grayBrush, underMidA);
+            graphics.DrawLines(whitePen, underMidB);
+            graphics.FillPolygon(redBrush, underMidB);
+
+            Point menuPointA = new Point(rectUnderMid.X+30, rectUnderMid.Y+30);
+            Point menuPointB = new Point(rectUnderMid.X + 15, rectUnderMid.Y + 60);
+            Point menuPointC = new Point(rectUnderMid.X + 35, rectUnderMid.Y + 90);
+
+            graphics.DrawString(menuOptions[0], fontTwo, tealBrush, menuPointA);
+            graphics.DrawString(menuOptions[1], fontTwo, grayBrush, menuPointB);
+            graphics.DrawString(menuOptions[2], fontTwo, grayBrush, menuPointC);
+
+
+            //graphics.DrawRectangle(whitePen, newRectB);
 
             //hexLeft[0] = new Point(200,200);
             //hexLeft[1] = new Point(195,205);
@@ -190,7 +233,7 @@ namespace MySecond_FormsDrawing
             //hexLeft[6] = new Point(200,200);
 
             hexLeft[0] = new Point(200, 200);
-            hexLeft[1] = new Point(195, 205);
+            hexLeft[1] = new Point(175, 205);
             hexLeft[2] = new Point(200, 210);
             hexLeft[3] = new Point(205, 210);
             hexLeft[4] = new Point(210, 205);
