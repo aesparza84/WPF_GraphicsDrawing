@@ -82,7 +82,13 @@ namespace MySecond_FormsDrawing
             int titleRectSize = 83;
             graphics.DrawRectangle(penTwo, new Rectangle((screenWisth / 4), 10, width, titleRectSize));
             graphics.FillRectangle(orangeBrush, new Rectangle((screenWisth / 4), 10, width, titleRectSize));
-            graphics.DrawString(menuTitle, titleFont, tealBrush, new Rectangle((screenWisth / 4), 30, width, 150));
+            Point[] titleLines = new Point[3];
+            titleLines[0] = new Point((screenWisth / 4), 10);
+            titleLines[1] = new Point();
+            titleLines[2] = new Point();
+            graphics.DrawLines(penOne, titleLines);
+
+            graphics.DrawString(menuTitle, titleFont, blackBrush, new Rectangle((screenWisth / 4), 30, width, 150));
 
             Pen yellowPen = new Pen(Color.Yellow);
             yellowPen.Width = 3;
