@@ -176,17 +176,26 @@ namespace MySecond_FormsDrawing
             Rectangle newRect = new Rectangle(200,200, 10,10);
             Rectangle newRectB = new Rectangle(590, 200, 10, 10);
 
-            Point[] hexLeft = new Point[6];
+            Point[] hexLeft = new Point[7];
             Point[] hexRight = new Point[5];
             //graphics.DrawRectangle(whitePen, newRect);
              graphics.DrawRectangle(whitePen, newRectB);
 
-            hexLeft[0] = new Point(200,200);
-            hexLeft[1] = new Point(195,195);
-            hexLeft[2] = new Point();
-            hexLeft[3] = new Point();
-            hexLeft[4] = new Point();
-            hexLeft[5] = new Point();
+            //hexLeft[0] = new Point(200,200);
+            //hexLeft[1] = new Point(195,205);
+            //hexLeft[2] = new Point(200, 210);
+            //hexLeft[3] = new Point(205,210);
+            //hexLeft[4] = new Point(210, 205);
+            //hexLeft[5] = new Point(205, 200);
+            //hexLeft[6] = new Point(200,200);
+
+            hexLeft[0] = new Point(200, 200);
+            hexLeft[1] = new Point(195, 205);
+            hexLeft[2] = new Point(200, 210);
+            hexLeft[3] = new Point(205, 210);
+            hexLeft[4] = new Point(210, 205);
+            hexLeft[5] = new Point(205, 200);
+            hexLeft[6] = new Point(200, 200);
 
             graphics.DrawLines(whitePen, hexLeft);
 
